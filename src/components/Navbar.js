@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 
 
 const Navbar = ({ children }) => {
+
+    const [dark, setDark] = useState(false);
+
+
     return (
-        <div class="drawer drawer-end">
+        <div class="drawer drawer-end" data-theme={dark ? "dark" : "light"}>
             <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
             <div class="drawer-content flex flex-col">
 
@@ -29,12 +33,12 @@ const Navbar = ({ children }) => {
                             <li className='dropdown dropdown-hover dropdown-end '>
                                 <label tabindex="0" class="btn btn-outline btn-primary rounded-lg gap-x-2">BOOK NOW</label>
                                 <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                                    <li><a>Item 1</a></li>
-                                    <li><a>Item 2</a></li>
+                                    <li><a>Quick Book</a></li>
+                                    <li><a>Pre Book</a></li>
                                 </ul>
                             </li>
                             <label class='swap swap-rotate'>
-                                <input type='checkbox' data-toggle-theme='dark,light' />
+                                <input type='checkbox' onClick={() => setDark(!dark)} />
 
                                 <svg
                                     class='swap-on fill-current w-10 h-10'
@@ -67,7 +71,15 @@ const Navbar = ({ children }) => {
                     <li><NavLink to='/services' className='rounded-lg'>Services</NavLink></li>
                     <li><NavLink to='/contact' className='rounded-lg'>Contact</NavLink></li>
                     <li><NavLink to='/login' className='rounded-lg'>Login</NavLink></li>
-
+                    <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+                        <div class="collapse-title text-xl font-medium">
+                            Book Now
+                        </div>
+                        <div class="collapse-content">
+                            <li><NavLink to='/contact' className='rounded-lg'>Quick Bookt</NavLink></li>
+                            <li><NavLink to='/login' className='rounded-lg'>Pre Book</NavLink></li>
+                        </div>
+                    </div>
                 </ul>
 
             </div>
