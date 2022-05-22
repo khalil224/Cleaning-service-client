@@ -2,6 +2,7 @@ import React from 'react';
 import bucketgirl from '../../assets/Images/bucketgirl.png'
 
 const Landing = () => {
+
     return (
         <div className=''>
             <div class="hero h-screen  lg:h-[60vh] lg:bg-accent z-10 mt-16 ">
